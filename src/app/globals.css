@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3faf5;
+  --foreground: #143325;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: #24a148;
+  --color-brand-dark: #146c36;
+  --color-mint: #e7f6ec;
+  --color-whatsapp: #1f9e3f;
+  --color-ink: #1a3326;
+  --color-ink-muted: #4d6658;
+  --font-sans: var(--font-plus-jakarta);
+  --font-display: var(--font-plus-jakarta);
+  --shadow-card: 0 1px 3px rgb(20 108 54 / 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+a, button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgb(36 161 72 / 0.18);
+}
+
+.bg-hero {
+  background:
+    radial-gradient(900px 380px at 8% -20%, #c8efd4 0%, transparent 58%),
+    linear-gradient(180deg, #e7f6ec 0%, #ffffff 72%);
+}
+
+.font-display {
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid #24a148;
+  outline-offset: 2px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
