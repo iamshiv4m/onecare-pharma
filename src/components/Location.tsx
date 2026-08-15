@@ -31,12 +31,7 @@ export function Location() {
             </div>
           </div>
 
-          <a
-            href={businessConfig.googleMapsUrl}
-            className="flex min-h-56 flex-col justify-between rounded-2xl bg-brand-dark p-6 text-white shadow-lg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="flex min-h-56 flex-col justify-between rounded-2xl bg-brand-dark p-6 text-white shadow-lg">
             <div>
               <IconPin className="size-10 text-[#b8f0cc]" />
               <p className="mt-4 font-display text-2xl font-bold">
@@ -50,7 +45,7 @@ export function Location() {
             <DirectionsButton variant="light" className="mt-6 w-full">
               Directions kholo
             </DirectionsButton>
-          </a>
+          </div>
         </div>
       </div>
     </section>
