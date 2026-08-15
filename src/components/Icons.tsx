@@ -35,7 +35,11 @@ export function IconPhone(props: IconProps) {
 export function IconPin(props: IconProps) {
   return (
     <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"
+      />
       <circle cx="12" cy="10" r="2.2" />
     </svg>
   );
@@ -53,6 +57,78 @@ export function IconClose(props: IconProps) {
   return (
     <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
       <path strokeLinecap="round" d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+export function IconPill(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
+      <rect x="5" y="8" width="14" height="8" rx="4" />
+      <path strokeLinecap="round" d="M9 12h6" />
+    </svg>
+  );
+}
+
+export function IconHeart(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 20s-6.5-4.2-6.5-9.5a3.5 3.5 0 0 1 6.3-2.1A3.5 3.5 0 0 1 18.5 10.5C18.5 15.8 12 20 12 20z"
+      />
+    </svg>
+  );
+}
+
+export function IconBaby(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
+      <circle cx="12" cy="8" r="3" />
+      <path strokeLinecap="round" d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+    </svg>
+  );
+}
+
+export function IconDevice(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
+      <rect x="6" y="4" width="12" height="16" rx="2" />
+      <path strokeLinecap="round" d="M10 8h4M12 16h.01" />
+    </svg>
+  );
+}
+
+export function IconClock(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
+      <circle cx="12" cy="12" r="8" />
+      <path strokeLinecap="round" d="M12 8v4.5l2.5 2.5" />
+    </svg>
+  );
+}
+
+export function IconChat(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="1.8">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5 6.5A3.5 3.5 0 0 1 8.5 3h7A3.5 3.5 0 0 1 19 6.5v5A3.5 3.5 0 0 1 15.5 15H11l-3.5 3v-3H8.5A3.5 3.5 0 0 1 5 11.5v-5z"
+      />
+    </svg>
+  );
+}
+
+export function IconCheck(props: IconProps) {
+  return (
+    <svg {...iconProps(props)} stroke="currentColor" strokeWidth="2">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5 12.5 9.5 17 19 7.5"
+      />
     </svg>
   );
 }

@@ -7,6 +7,7 @@ const INTRINSIC = { w: 1024, h: 826 };
 const SIZES = {
   header: { height: 44, maxWidth: 160 },
   hero: { height: 168, maxWidth: 280 },
+  heroLarge: { height: 260, maxWidth: 420 },
   footer: { height: 52, maxWidth: 180 },
 } as const;
 
@@ -18,7 +19,10 @@ export function BrandLogo({
   priority?: boolean;
 }) {
   const { height, maxWidth } = SIZES[variant];
-  const width = Math.min(maxWidth, Math.round((INTRINSIC.w / INTRINSIC.h) * height));
+  const width = Math.min(
+    maxWidth,
+    Math.round((INTRINSIC.w / INTRINSIC.h) * height),
+  );
 
   return (
     <span

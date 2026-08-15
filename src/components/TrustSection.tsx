@@ -1,18 +1,128 @@
 import { businessConfig } from "@/config/business";
+import { CallButton, WhatsAppButton } from "@/components/CtaButtons";
+import { BrandLogo } from "@/components/BrandLogo";
+import { SectionTitle } from "@/components/SectionTitle";
+import { IconClock, IconPill, IconPin, IconWhatsApp } from "@/components/Icons";
+import { telHref } from "@/lib/links";
+
+const points = [
+  {
+    icon: IconPill,
+    title: "Asli dawai, local shop",
+    body: "Counter pe aa ke dekh sakte ho — seedha baat, seedha kaam.",
+  },
+  {
+    icon: IconWhatsApp,
+    title: "WhatsApp pe seedha reply",
+    body: "List bhejo, stock check karo, pickup ya delivery confirm karo.",
+  },
+  {
+    icon: IconPin,
+    title: "Bhajanpura se pickup",
+    body: "Shop se lena ho ya nearby delivery — pehle pooch lena.",
+  },
+  {
+    icon: IconClock,
+    title: "Roz 8:30 AM se 11 PM",
+    body: "Subah se raat tak khula — jab bhi dawai chahiye ho.",
+  },
+];
 
 export function TrustSection() {
+  const { address } = businessConfig;
+
   return (
     <section id="about" className="scroll-mt-24 bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
-        <h2 className="font-display text-2xl font-bold text-brand-dark">
-          About the shop
-        </h2>
-        <p className="mt-3 max-w-2xl text-ink-muted leading-relaxed">
-          {businessConfig.shortName} is a medical store on Main Wazirabad Road,
-          Bhajanpura (Delhi 110053). People from nearby lanes come here for
-          daily medicines. You can walk in, call {businessConfig.phoneDisplay},
-          or message on WhatsApp. Hours are 8:30 AM to 11 PM, all days.
-        </p>
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <SectionTitle eyebrow="About" title="Bhajanpura ka apna medical store">
+          {businessConfig.shortName} — Main Wazirabad Road pe local pharmacy.
+          Call ya WhatsApp, jo aasaan lage.
+        </SectionTitle>
+
+        <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch">
+          <div className="flex flex-col rounded-3xl bg-brand-dark p-6 text-white shadow-lg sm:p-8">
+            <div className="inline-flex self-start rounded-2xl bg-white p-4 shadow-sm">
+              <BrandLogo variant="footer" />
+            </div>
+
+            <h3 className="mt-6 font-display text-xl font-bold sm:text-2xl">
+              {businessConfig.name}
+            </h3>
+            <p className="mt-1 text-sm text-[#b8f0cc]">
+              {businessConfig.tagline}
+            </p>
+
+            <address className="mt-5 not-italic text-sm leading-relaxed text-white/85">
+              {address.streetAddress}
+              <br />
+              {address.addressLocality}, {address.addressRegion}{" "}
+              {address.postalCode}
+            </address>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {businessConfig.phones.map((phone) => (
+                <a
+                  key={phone.e164}
+                  href={telHref(phone.e164)}
+                  className="rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/20"
+                >
+                  {phone.display}
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-auto space-y-3 pt-8">
+              <div className="rounded-xl bg-white/10 px-4 py-3 ring-1 ring-white/10">
+                <p className="text-[11px] font-bold uppercase tracking-wide text-[#9ee8b8]">
+                  Opening hours
+                </p>
+                <p className="mt-1 text-sm font-semibold">
+                  <time dateTime="08:30">8:30 AM</time>
+                  {" – "}
+                  <time dateTime="23:00">11:00 PM</time>, all days
+                </p>
+              </div>
+              <p className="text-xs text-white/60">
+                GSTIN {businessConfig.gstin}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col rounded-3xl border border-brand/10 bg-mint/40 p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand">
+              Kyun choose karein
+            </p>
+            <h3 className="mt-1 font-display text-xl font-bold text-brand-dark sm:text-2xl">
+              Seedha shop, seedhi baat
+            </h3>
+
+            <ul className="mt-6 flex flex-1 flex-col gap-3">
+              {points.map(({ icon: Icon, title, body }) => (
+                <li
+                  key={title}
+                  className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-brand/5"
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand text-white">
+                    <Icon className="size-5" />
+                  </span>
+                  <div>
+                    <p className="font-display font-bold text-brand-dark">
+                      {title}
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-ink-muted">
+                      {body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <WhatsAppButton className="w-full sm:w-auto" />
+              <CallButton className="w-full sm:w-auto" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

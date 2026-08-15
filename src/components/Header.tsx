@@ -11,7 +11,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-brand/20 bg-white">
+    <header className="sticky top-0 z-40 border-b border-brand/15 bg-white/95 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-6 sm:py-3">
         <Link href="/" className="inline-flex h-11 min-w-0 flex-1 items-center">
           <BrandLogo variant="header" priority />
@@ -39,14 +39,21 @@ export function Header() {
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <IconClose className="size-6" /> : <IconMenu className="size-6" />}
+            {open ? (
+              <IconClose className="size-6" />
+            ) : (
+              <IconMenu className="size-6" />
+            )}
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           </button>
         </div>
       </div>
 
       {open ? (
-        <div id="mobile-nav" className="border-t border-brand/10 bg-white px-4 py-4 lg:hidden">
+        <div
+          id="mobile-nav"
+          className="border-t border-brand/10 bg-white px-4 py-4 lg:hidden"
+        >
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {businessConfig.nav.map((item) => (
               <a

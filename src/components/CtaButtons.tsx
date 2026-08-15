@@ -11,20 +11,24 @@ export function WhatsAppButton({
   message,
   className = "",
   variant = "primary",
+  glow = false,
 }: {
   children?: ReactNode;
   message?: string;
   className?: string;
-  variant?: "primary" | "light";
+  variant?: "primary" | "light" | "onDark";
+  glow?: boolean;
 }) {
   const styles =
     variant === "primary"
       ? "bg-whatsapp text-white hover:bg-[#198a36] shadow-sm"
-      : "bg-white text-brand-dark border border-brand/20 hover:bg-mint";
+      : variant === "light"
+        ? "border border-brand/20 bg-white text-brand-dark hover:bg-mint"
+        : "border border-white/30 bg-white/10 text-white hover:bg-white/20";
   return (
     <a
       href={whatsappHref(message)}
-      className={`${base} ${styles} ${className}`}
+      className={`${base} ${styles} ${glow ? "whatsapp-glow" : ""} ${className}`}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -41,12 +45,14 @@ export function CallButton({
 }: {
   children?: ReactNode;
   className?: string;
-  variant?: "secondary" | "ghost";
+  variant?: "secondary" | "ghost" | "onDark";
 }) {
   const styles =
     variant === "secondary"
       ? "bg-white text-brand-dark border border-brand/25 hover:bg-mint"
-      : "text-brand-dark underline-offset-4 hover:underline px-2";
+      : variant === "onDark"
+        ? "border border-white/25 bg-white/10 text-white hover:bg-white/20"
+        : "text-brand-dark underline-offset-4 hover:underline px-2";
   return (
     <a href={telHref()} className={`${base} ${styles} ${className}`}>
       <IconPhone className="size-5" />
@@ -61,14 +67,21 @@ export function CallButton({
 export function DirectionsButton({
   children = "Directions",
   className = "",
+  variant = "primary",
 }: {
   children?: ReactNode;
   className?: string;
+  variant?: "primary" | "light";
 }) {
+  const styles =
+    variant === "primary"
+      ? "bg-brand text-white hover:bg-brand-dark shadow-sm"
+      : "border border-brand/15 bg-white text-brand-dark hover:bg-mint";
+
   return (
     <a
       href={mapsHref()}
-      className={`${base} bg-brand text-white hover:bg-brand-dark shadow-sm ${className}`}
+      className={`${base} ${styles} ${className}`}
       target="_blank"
       rel="noopener noreferrer"
     >
