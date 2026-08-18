@@ -33,7 +33,8 @@ export const businessConfig = {
   legalName: "One Care Pharma",
   tagline: "Your health, our priority",
   domain: "onecarepharma.com",
-  url: "https://onecarepharma.com",
+  /** Must match the live primary host. Vercel currently 308s apex → www. */
+  url: "https://www.onecarepharma.com",
   email: "onecarepharma2@gmail.com",
   gstin: "07BWSPJ2504B1ZT",
 
