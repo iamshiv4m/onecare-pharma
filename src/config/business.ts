@@ -96,8 +96,11 @@ export const businessConfig = {
 
   googleReviewUrl: "",
 
-  /** Paste Search Console HTML tag content here after connecting the domain. */
-  googleSiteVerification: "",
+  /** Meta tag content for Google Search Console (HTML tag method). */
+  googleSiteVerification: "Kz-HjGOwQs8E82I0OkHdISzH5onBdzcEwhgpuLxYXho",
+
+  /** HTML file name for Google Search Console (HTML file upload method). */
+  googleSiteVerificationFile: "googlef46004cb09a5f5e3.html",
 
   geo: null as GeoCoordinates | null,
 
