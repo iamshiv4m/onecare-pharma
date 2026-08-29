@@ -1,8 +1,9 @@
 import { businessConfig } from "@/config/business";
+import { localLandingPages } from "@/lib/local-pages";
 import type { MetadataRoute } from "next";
 
 /** Bump this when page content actually changes — do not use `new Date()`. */
-const LAST_MODIFIED = "2026-08-18";
+const LAST_MODIFIED = "2026-08-30";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -12,6 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8 as const,
       changeFrequency: "monthly" as const,
     },
+    ...localLandingPages.map((page) => ({
+      path: page.path,
+      priority: page.priority,
+      changeFrequency: page.changeFrequency,
+    })),
     {
       path: "/privacy",
       priority: 0.3 as const,

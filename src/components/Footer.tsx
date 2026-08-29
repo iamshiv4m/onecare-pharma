@@ -9,6 +9,8 @@ const footerLinks = [
   { href: "/#order", label: "Order Medicine" },
   { href: "/#about", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/bhajanpura-pharmacy", label: "Bhajanpura pharmacy" },
+  { href: "/medicine-delivery", label: "Medicine delivery" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];

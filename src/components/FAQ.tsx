@@ -1,7 +1,7 @@
-import { getFaqs } from "@/lib/faq";
+import { getFaqs, type FaqItem } from "@/lib/faq";
 
-export function FAQ() {
-  const faqs = getFaqs();
+export function FAQ({ items }: { items?: FaqItem[] }) {
+  const faqs = items ?? getFaqs();
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

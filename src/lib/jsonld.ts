@@ -16,23 +16,6 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     description:
       "Neighbourhood pharmacy and medical store in Bhajanpura, Delhi. Order on WhatsApp, visit the store, or call for medicines and daily health needs.",
     url,
-    image: [
-      {
-        "@type": "ImageObject",
-        url: `${url}/logo.jpg`,
-        contentUrl: `${url}/logo.jpg`,
-        width: 1024,
-        height: 826,
-        caption: "ONE CARE PHARMA logo",
-      },
-      {
-        "@type": "ImageObject",
-        url: `${url}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        caption: "ONE CARE PHARMA, Bhajanpura medical store",
-      },
-    ],
     logo: {
       "@type": "ImageObject",
       url: `${url}/logo.jpg`,
@@ -97,10 +80,9 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     pharmacy.openingHours = "Mo-Su 08:30-23:00";
   }
 
-  const sameAs = [
-    ...socialLinks.map((link) => link.url),
-    googleMapsUrl,
-  ].filter((value, index, arr) => value && arr.indexOf(value) === index);
+  const sameAs = [...socialLinks.map((link) => link.url), googleMapsUrl].filter(
+    (value, index, arr) => value && arr.indexOf(value) === index,
+  );
 
   if (sameAs.length > 0) {
     pharmacy.sameAs = sameAs;

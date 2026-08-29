@@ -7,6 +7,7 @@ import {
 import { NapDetails } from "@/components/NapDetails";
 import { SectionTitle } from "@/components/SectionTitle";
 import { IconPin } from "@/components/Icons";
+import Link from "next/link";
 
 export function Location() {
   return (
@@ -47,6 +48,21 @@ export function Location() {
             </DirectionsButton>
           </div>
         </div>
+        <p className="mt-6 text-sm text-ink-muted">
+          <Link
+            href="/bhajanpura-pharmacy"
+            className="font-semibold text-brand hover:underline"
+          >
+            Medical store in Bhajanpura
+          </Link>
+          {" · "}
+          <Link
+            href="/medicine-delivery"
+            className="font-semibold text-brand hover:underline"
+          >
+            Nearby medicine delivery
+          </Link>
+        </p>
       </div>
     </section>
   );

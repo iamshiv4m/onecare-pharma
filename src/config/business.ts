@@ -104,7 +104,11 @@ export const businessConfig = {
   /** HTML file name for Google Search Console (HTML file upload method). */
   googleSiteVerificationFile: "googlef46004cb09a5f5e3.html",
 
-  geo: null as GeoCoordinates | null,
+  /** Approximate pin for C-35, Main Wazirabad Road, Bhajanpura Chowk. Refine from GBP if Maps differs. */
+  geo: {
+    latitude: 28.70316,
+    longitude: 77.26408,
+  } satisfies GeoCoordinates,
 
   /** Official profiles only. Maps listing helps Google match GBP ↔ website. */
   socialLinks: [
