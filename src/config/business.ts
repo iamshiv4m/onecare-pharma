@@ -95,7 +95,8 @@ export const businessConfig = {
 
   googleMapsUrl: "https://share.google/qObhh3jxQhWoCL4q5",
 
-  googleReviewUrl: "",
+  /** Google Business Profile / Search listing — “Write a review” CTA. */
+  googleReviewUrl: "https://share.google/8BdFdwI1PhQZsx9NW",
 
   /** Meta tag content for Google Search Console (HTML tag method). */
   googleSiteVerification: "Kz-HjGOwQs8E82I0OkHdISzH5onBdzcEwhgpuLxYXho",
@@ -108,6 +109,7 @@ export const businessConfig = {
   /** Official profiles only. Maps listing helps Google match GBP ↔ website. */
   socialLinks: [
     { name: "Google Maps", url: "https://share.google/qObhh3jxQhWoCL4q5" },
+    { name: "Google", url: "https://share.google/8BdFdwI1PhQZsx9NW" },
   ] as SocialLink[],
 
   prescriptionDisclaimer:
