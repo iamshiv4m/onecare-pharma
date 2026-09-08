@@ -62,7 +62,7 @@ export default async function OpenGraphImage() {
             Main Wazirabad Road, Delhi 110053
           </div>
           <div style={{ marginTop: 28, fontSize: 22, color: "#146c36" }}>
-            WhatsApp · Call · Google Maps
+            Visit Store · Call · Google Maps
           </div>
         </div>
       </div>

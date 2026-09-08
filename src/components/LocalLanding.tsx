@@ -9,7 +9,7 @@ import { FAQ } from "@/components/FAQ";
 import {
   CallButton,
   DirectionsButton,
-  WhatsAppButton,
+  VisitStoreButton,
 } from "@/components/CtaButtons";
 import { businessConfig } from "@/config/business";
 import { getLocalLandingPage, type LocalLandingPage } from "@/lib/local-pages";
@@ -35,8 +35,8 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
   const page = getLocalLandingPage(path);
   const related =
     path === "/bhajanpura-pharmacy"
-      ? { href: "/medicine-delivery" as const, label: "Medicine delivery" }
-      : { href: "/bhajanpura-pharmacy" as const, label: "Bhajanpura shop" };
+      ? { href: "/medical-store-110053" as const, label: "Medical store near 110053" }
+      : { href: "/bhajanpura-pharmacy" as const, label: "Bhajanpura pharmacy" };
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -76,7 +76,7 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
             {page.intro}
           </p>
           <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-            <WhatsAppButton />
+            <VisitStoreButton href="#contact" />
             <CallButton />
             <DirectionsButton variant="light" />
           </div>

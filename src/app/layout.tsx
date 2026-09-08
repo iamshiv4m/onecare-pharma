@@ -13,7 +13,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const title =
   "One Care Pharma | Medical Store in Bhajanpura, Delhi 110053";
 const description =
-  "One Care Pharma, Shop No. 2, C-35, Main Wazirabad Road, Bhajanpura, Delhi 110053. Medicines on WhatsApp, call 8796654406, open 8:30 AM to 11 PM every day.";
+  "One Care Pharma is a local medical store at Shop No. 2, C-35, Main Wazirabad Road, Bhajanpura, Delhi 110053. Open 8:30 AM to 11 PM every day. Call 8796654406 or get directions.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(businessConfig.url),
@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   applicationName: businessConfig.shortName,
   keywords: [
     "One Care Pharma",
-    "pharmacy in Bhajanpura",
-    "medical store Bhajanpura",
+    "Medical Store in Bhajanpura",
+    "Pharmacy in Bhajanpura",
+    "Medical Store near 110053",
+    "Pharmacy near Bhajanpura",
     "pharmacy Wazirabad Road",
-    "medicine shop Delhi 110053",
-    "pharmacy near me Bhajanpura",
   ],
   robots: { index: true, follow: true },
   category: "health",

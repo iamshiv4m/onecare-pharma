@@ -5,7 +5,7 @@ import Link from "next/link";
 import { businessConfig } from "@/config/business";
 import { IconClose, IconMenu } from "@/components/Icons";
 import { BrandLogo } from "@/components/BrandLogo";
-import { WhatsAppButton } from "@/components/CtaButtons";
+import { CallButton, WhatsAppButton } from "@/components/CtaButtons";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -31,7 +31,7 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <WhatsAppButton className="!hidden sm:!inline-flex !min-h-10 !px-4 !py-2 text-sm" />
+          <CallButton className="!hidden sm:!inline-flex !min-h-10 !px-4 !py-2 text-sm" />
           <button
             type="button"
             className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-brand/15 text-brand-dark lg:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
@@ -66,7 +66,8 @@ export function Header() {
               </a>
             ))}
           </nav>
-          <WhatsAppButton className="mt-3 w-full sm:hidden" />
+          <CallButton className="mt-3 w-full sm:hidden" />
+          <WhatsAppButton className="mt-2 w-full sm:hidden" />
         </div>
       ) : null}
     </header>

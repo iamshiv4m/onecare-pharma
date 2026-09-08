@@ -31,7 +31,7 @@ export const businessConfig = {
   name: "ONE CARE PHARMA",
   shortName: "One Care Pharma",
   legalName: "One Care Pharma",
-  tagline: "Your health, our priority",
+  tagline: "Your local medical store in Bhajanpura",
   domain: "onecarepharma.com",
   /** Must match the live primary host. Vercel currently 308s apex → www. */
   url: "https://www.onecarepharma.com",
@@ -66,10 +66,7 @@ export const businessConfig = {
   whatsappDisplay: "8796654406",
 
   whatsappPrefill:
-    "Hi One Care Pharma, I would like to order medicines. I will share my prescription/details here.",
-
-  whatsappPrescriptionPrefill:
-    "Hi One Care Pharma, I would like to send my prescription for review. I will attach the prescription photo in this chat.",
+    "Hi One Care Pharma, I have a question about store hours, location, or products available at the shop.",
 
   openingHours: {
     hoursConfirmed: true,
@@ -89,9 +86,10 @@ export const businessConfig = {
     } as OpeningHoursSchema | OpeningHoursSchema[] | null,
   },
 
-  offersDelivery: true,
+  /** Public site is positioned as a walk-in medical store, not an online pharmacy. */
+  offersDelivery: false,
   serviceArea:
-    "Bhajanpura, Main Wazirabad Road and nearby neighbourhoods in North East Delhi (110053). Delivery availability may vary — please check on WhatsApp or by phone.",
+    "Walk-in customers from Bhajanpura, Main Wazirabad Road, and nearby neighbourhoods in North East Delhi (110053), including Yamuna Vihar, Khajuri Khas, Sonia Vihar, and Seelampur.",
 
   googleMapsUrl: "https://share.google/qObhh3jxQhWoCL4q5",
 
@@ -122,7 +120,7 @@ export const businessConfig = {
   nav: [
     { href: "/", label: "Home" },
     { href: "/#services", label: "Services" },
-    { href: "/#order", label: "Order Medicine" },
+    { href: "/#contact", label: "Visit Store" },
     { href: "/#about", label: "About" },
     { href: "/contact", label: "Contact" },
   ],

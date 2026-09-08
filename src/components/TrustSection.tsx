@@ -1,30 +1,34 @@
 import { businessConfig } from "@/config/business";
-import { CallButton, WhatsAppButton } from "@/components/CtaButtons";
+import {
+  CallButton,
+  DirectionsButton,
+  VisitStoreButton,
+} from "@/components/CtaButtons";
 import { BrandLogo } from "@/components/BrandLogo";
 import { SectionTitle } from "@/components/SectionTitle";
-import { IconClock, IconPill, IconPin, IconWhatsApp } from "@/components/Icons";
+import { IconClock, IconPill, IconPin } from "@/components/Icons";
 import { telHref } from "@/lib/links";
 
 const points = [
   {
     icon: IconPill,
-    title: "Asli dawai, local shop",
+    title: "Asli local shop",
     body: "Counter pe aa ke dekh sakte ho — seedha baat, seedha kaam.",
   },
   {
-    icon: IconWhatsApp,
-    title: "WhatsApp pe seedha reply",
-    body: "List bhejo, stock check karo, pickup ya delivery confirm karo.",
-  },
-  {
     icon: IconPin,
-    title: "Bhajanpura se pickup",
-    body: "Shop se lena ho ya nearby delivery — pehle pooch lena.",
+    title: "Bhajanpura, Wazirabad Road",
+    body: "Ground floor shop — Google Maps se Get Directions lo.",
   },
   {
     icon: IconClock,
     title: "Roz 8:30 AM se 11 PM",
-    body: "Subah se raat tak khula — jab bhi dawai chahiye ho.",
+    body: "Sunday bhi khula — walk-in customers ke liye.",
+  },
+  {
+    icon: IconPill,
+    title: "Trusted neighbourhood store",
+    body: "GST-registered medical store. Hours aur stock ke liye call karo.",
   },
 ];
 
@@ -36,7 +40,7 @@ export function TrustSection() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <SectionTitle eyebrow="About" title="Bhajanpura ka apna medical store">
           {businessConfig.shortName} — Main Wazirabad Road pe local pharmacy.
-          Call ya WhatsApp, jo aasaan lage.
+          Visit the store, call, ya directions lo.
         </SectionTitle>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch">
@@ -117,9 +121,10 @@ export function TrustSection() {
               ))}
             </ul>
 
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
-              <WhatsAppButton className="w-full sm:w-auto" />
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <VisitStoreButton href="#contact" className="w-full sm:w-auto" />
               <CallButton className="w-full sm:w-auto" />
+              <DirectionsButton variant="light" className="w-full sm:w-auto" />
             </div>
           </div>
         </div>

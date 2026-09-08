@@ -21,9 +21,9 @@ export default function TermsPage() {
         </h1>
         <p className="mt-4 text-ink-muted">
           This website is an information and enquiry page for{" "}
-          {businessConfig.shortName}. It is not a medical advice service.
-          {businessConfig.prescriptionDisclaimer} Replace this placeholder with
-          full terms before launch if you add online payments or accounts.
+          {businessConfig.shortName}, a physical medical store in Bhajanpura. It
+          is not an online pharmacy and not a medical advice service.{" "}
+          {businessConfig.prescriptionDisclaimer}
         </p>
       </main>
       <Footer />

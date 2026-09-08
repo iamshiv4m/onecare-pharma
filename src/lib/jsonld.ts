@@ -14,7 +14,7 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     alternateName: shortName,
     legalName: businessConfig.legalName,
     description:
-      "Neighbourhood pharmacy and medical store in Bhajanpura, Delhi. Order on WhatsApp, visit the store, or call for medicines and daily health needs.",
+      "Neighbourhood pharmacy and medical store in Bhajanpura, Delhi. Visit the physical shop, call, or get directions for healthcare products and daily health needs.",
     url,
     logo: {
       "@type": "ImageObject",

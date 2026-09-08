@@ -6,11 +6,11 @@ import { telHref, mapsHref, whatsappHref } from "@/lib/links";
 
 const footerLinks = [
   { href: "/#services", label: "Services" },
-  { href: "/#order", label: "Order Medicine" },
+  { href: "/#contact", label: "Visit Store" },
   { href: "/#about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/bhajanpura-pharmacy", label: "Bhajanpura pharmacy" },
-  { href: "/medicine-delivery", label: "Medicine delivery" },
+  { href: "/medical-store-110053", label: "Medical store near 110053" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];

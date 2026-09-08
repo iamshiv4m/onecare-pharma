@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: businessConfig.name,
     short_name: businessConfig.shortName,
     description:
-      "Medical store in Bhajanpura, Delhi. WhatsApp order, call, or visit.",
+      "Local medical store in Bhajanpura, Delhi. Visit the shop or call.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

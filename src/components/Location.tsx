@@ -21,14 +21,16 @@ export function Location() {
           <div className="rounded-2xl border border-brand/10 bg-mint/40 p-5 sm:p-6">
             <NapDetails />
             <p className="mt-3 text-sm text-ink-muted">
-              WhatsApp {businessConfig.whatsappDisplay}
+              WhatsApp {businessConfig.whatsappDisplay} — general store
+              enquiries (hours, directions, in-store products).
             </p>
             <p className="mt-2 text-xs text-ink-muted">
               GSTIN {businessConfig.gstin}
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              <WhatsAppButton className="w-full sm:w-auto" variant="light" />
               <CallButton className="w-full sm:w-auto" />
+              <DirectionsButton className="w-full sm:w-auto" />
+              <WhatsAppButton className="w-full sm:w-auto" variant="light" />
             </div>
           </div>
 
@@ -57,10 +59,10 @@ export function Location() {
           </Link>
           {" · "}
           <Link
-            href="/medicine-delivery"
+            href="/medical-store-110053"
             className="font-semibold text-brand hover:underline"
           >
-            Nearby medicine delivery
+            Medical store near 110053
           </Link>
         </p>
       </div>

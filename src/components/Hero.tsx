@@ -2,18 +2,18 @@ import { businessConfig } from "@/config/business";
 import {
   CallButton,
   DirectionsButton,
-  WhatsAppButton,
+  VisitStoreButton,
 } from "@/components/CtaButtons";
 import { BrandLogo } from "@/components/BrandLogo";
 import { OpenStatus } from "@/components/OpenStatus";
-import { IconClock, IconPin, IconWhatsApp } from "@/components/Icons";
+import { IconClock, IconPhone, IconPin } from "@/components/Icons";
 
 const highlights = [
   { icon: IconClock, label: "Open daily", value: "8:30 AM – 11 PM" },
   {
-    icon: IconWhatsApp,
-    label: "WhatsApp",
-    value: businessConfig.whatsappDisplay,
+    icon: IconPhone,
+    label: "Call",
+    value: businessConfig.phoneDisplay,
   },
   { icon: IconPin, label: "Location", value: "Bhajanpura, Delhi" },
 ];
@@ -34,10 +34,10 @@ export function Hero() {
               Bhajanpura · Main Wazirabad Road
             </p>
 
-            <h1 className="mt-3 font-display text-[2.35rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.6rem]">
-              <span className="hero-gradient-text">Dawai chahiye?</span>
+            <h1 className="mt-3 font-display text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+              <span className="hero-gradient-text">One Care Pharma</span>
               <br />
-              One Care Pharma
+              Your Local Medical Store in Bhajanpura
             </h1>
 
             <p className="mt-3 text-xl font-medium text-[#b8f0cc] sm:text-2xl">
@@ -45,17 +45,21 @@ export function Hero() {
             </p>
 
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/80 sm:text-lg">
-              Prescription check, roz ki dawai, aur ghar tak delivery jab ho
-              sake. WhatsApp pe list bhejo — ya seedha shop pe aa jao.
+              Physical medical store on Main Wazirabad Road, Delhi 110053.
+              Healthcare, OTC, first-aid, and wellness products at the counter —
+              shop pe aao, call karo, ya Google Maps se directions lo.
             </p>
 
             <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              <WhatsAppButton
-                glow
-                className="w-full sm:w-auto sm:min-w-[220px]"
+              <VisitStoreButton
+                variant="light"
+                href="#contact"
+                className="w-full sm:w-auto sm:min-w-[180px]"
               />
+              <DirectionsButton variant="onDark" className="w-full sm:w-auto">
+                Get Directions
+              </DirectionsButton>
               <CallButton variant="onDark" className="w-full sm:w-auto" />
-              <DirectionsButton variant="light" className="w-full sm:w-auto" />
             </div>
           </div>
 

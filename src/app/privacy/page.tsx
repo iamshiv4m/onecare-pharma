@@ -21,10 +21,10 @@ export default function PrivacyPage() {
         </h1>
         <p className="mt-4 text-ink-muted">
           This is a placeholder. {businessConfig.shortName} does not currently
-          collect prescription files on this website. WhatsApp, phone, and
-          Google Maps are third-party services with their own privacy policies.
-          Replace this page with a full policy before collecting personal data
-          through forms or analytics.
+          collect prescription files or take medicine orders on this website.
+          WhatsApp, phone, and Google Maps are third-party services with their
+          own privacy policies. Replace this page with a full policy before
+          collecting personal data through forms or analytics.
         </p>
       </main>
       <Footer />

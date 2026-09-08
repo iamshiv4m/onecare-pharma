@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { PromoTicker } from "@/components/PromoTicker";
 import { Hero } from "@/components/Hero";
-import { WhatsAppOrder } from "@/components/WhatsAppOrder";
+import { VisitCta } from "@/components/VisitCta";
 import { Services } from "@/components/Services";
 import { TrustSection } from "@/components/TrustSection";
 import { Location } from "@/components/Location";
@@ -24,7 +24,7 @@ export default function Home() {
       <PromoTicker />
       <main>
         <Hero />
-        <WhatsAppOrder />
+        <VisitCta />
         <Services />
         <TrustSection />
         <Location />

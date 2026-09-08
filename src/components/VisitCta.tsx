@@ -1,31 +1,39 @@
 import { businessConfig } from "@/config/business";
-import { WhatsAppButton } from "@/components/CtaButtons";
+import {
+  CallButton,
+  DirectionsButton,
+  VisitStoreButton,
+} from "@/components/CtaButtons";
 import { SectionTitle } from "@/components/SectionTitle";
 
 const steps = [
-  "WhatsApp dabao",
-  "Dawai ya prescription bhejo",
-  "Stock + pickup/delivery confirm",
+  "Store pe aao — Main Wazirabad Road",
+  "Hours confirm karo — 8:30 AM to 11 PM",
+  "Call ya WhatsApp se general enquiry",
 ];
 
-export function WhatsAppOrder() {
+export function VisitCta() {
   return (
-    <section id="order" className="scroll-mt-24 bg-brand">
+    <section id="visit" className="scroll-mt-24 bg-brand">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <SectionTitle eyebrow="Fastest" title="WhatsApp pe order karo" light>
-            {businessConfig.whatsappDisplay} pe message karo. Koi app download
-            nahi, koi payment online nahi — seedha shop se baat.
+          <SectionTitle
+            eyebrow="Walk-in store"
+            title="Bhajanpura aake milo"
+            light
+          >
+            {businessConfig.addressDisplay}. Koi online cart nahi — yeh physical
+            medical store hai. Hours, directions, ya product availability ke
+            liye call karo.
           </SectionTitle>
           <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
-            <WhatsAppButton variant="light" className="w-full sm:w-auto" />
-            <WhatsAppButton
-              variant="onDark"
+            <VisitStoreButton
+              variant="light"
+              href="#contact"
               className="w-full sm:w-auto"
-              message={businessConfig.whatsappPrescriptionPrefill}
-            >
-              Prescription bhejo
-            </WhatsAppButton>
+            />
+            <CallButton variant="onDark" className="w-full sm:w-auto" />
+            <DirectionsButton variant="onDark" className="w-full sm:w-auto" />
           </div>
         </div>
 

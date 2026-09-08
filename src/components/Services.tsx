@@ -3,25 +3,25 @@ import {
   IconDevice,
   IconHeart,
   IconPill,
-  IconWhatsApp,
+  IconPin,
 } from "@/components/Icons";
 import { SectionTitle } from "@/components/SectionTitle";
 
 const items = [
   {
     icon: IconPill,
-    title: "Medicines",
-    body: "Regular aur prescription dawai — verification ke baad.",
+    title: "Healthcare products",
+    body: "OTC aur general healthcare items jo store pe stock mein hon.",
   },
   {
     icon: IconHeart,
-    title: "Health essentials",
-    body: "ORS, bandage, vitamins, first-aid.",
+    title: "First-aid & wellness",
+    body: "ORS, bandage, vitamins, first-aid — counter pe mil sakte hain.",
   },
   {
     icon: IconBaby,
     title: "Baby care",
-    body: "Baby aur mother care products.",
+    body: "Baby aur mother care products, availability ke hisaab se.",
   },
   {
     icon: IconDevice,
@@ -29,9 +29,9 @@ const items = [
     body: "Thermometer, BP monitor — stock pe depend.",
   },
   {
-    icon: IconWhatsApp,
-    title: "WhatsApp order",
-    body: "List bhejo, hum confirm karenge.",
+    icon: IconPin,
+    title: "Walk-in counter",
+    body: "Physical shop pe aao — staff counter pe help karega.",
   },
 ];
 
@@ -40,8 +40,8 @@ export function Services() {
     <section id="services" className="scroll-mt-24 bg-white pt-16 sm:pt-20">
       <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 sm:pb-16">
         <SectionTitle eyebrow="Store" title="Yahan kya milega">
-          Bhajanpura ka medical store — roz ki dawai se lekar ghar ki health
-          needs tak.
+          Bhajanpura ka medical store — healthcare, wellness, aur daily health
+          essentials at the shop.
         </SectionTitle>
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -7,7 +7,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-xl font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand min-h-12 px-4 py-3 text-sm sm:min-h-11 sm:px-5 sm:py-2.5";
 
 export function WhatsAppButton({
-  children = "Order on WhatsApp",
+  children = "Ask on WhatsApp",
   message,
   className = "",
   variant = "primary",
@@ -39,7 +39,7 @@ export function WhatsAppButton({
 }
 
 export function CallButton({
-  children = "Call",
+  children = "Call Now",
   className = "",
   variant = "secondary",
 }: {
@@ -51,7 +51,7 @@ export function CallButton({
     variant === "secondary"
       ? "bg-white text-brand-dark border border-brand/25 hover:bg-mint"
       : variant === "onDark"
-        ? "border border-white/25 bg-white/10 text-white hover:bg-white/20"
+        ? "border-2 border-white bg-[#b8f0cc] text-brand-dark hover:bg-white shadow-sm"
         : "text-brand-dark underline-offset-4 hover:underline px-2";
   return (
     <a href={telHref()} className={`${base} ${styles} ${className}`}>
@@ -64,19 +64,47 @@ export function CallButton({
   );
 }
 
+export function VisitStoreButton({
+  children = "Visit Store",
+  className = "",
+  variant = "primary",
+  href = "/#contact",
+}: {
+  children?: ReactNode;
+  className?: string;
+  variant?: "primary" | "light" | "onDark";
+  href?: string;
+}) {
+  const styles =
+    variant === "primary"
+      ? "bg-brand text-white hover:bg-brand-dark shadow-sm"
+      : variant === "light"
+        ? "border-2 border-white bg-white text-brand-dark hover:bg-mint shadow-sm"
+        : "border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-dark";
+
+  return (
+    <a href={href} className={`${base} ${styles} ${className}`}>
+      <IconPin className="size-5" />
+      <span className="leading-none">{children}</span>
+    </a>
+  );
+}
+
 export function DirectionsButton({
-  children = "Directions",
+  children = "Get Directions",
   className = "",
   variant = "primary",
 }: {
   children?: ReactNode;
   className?: string;
-  variant?: "primary" | "light";
+  variant?: "primary" | "light" | "onDark";
 }) {
   const styles =
     variant === "primary"
       ? "bg-brand text-white hover:bg-brand-dark shadow-sm"
-      : "border border-brand/15 bg-white text-brand-dark hover:bg-mint";
+      : variant === "light"
+        ? "border border-brand/15 bg-white text-brand-dark hover:bg-mint"
+        : "border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-dark";
 
   return (
     <a

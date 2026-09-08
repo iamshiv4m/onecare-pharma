@@ -2,11 +2,9 @@ import { businessConfig } from "@/config/business";
 
 const items = [
   "Open daily 8:30 AM – 11 PM",
-  "WhatsApp pe order",
+  "Walk-in medical store",
   "Bhajanpura, Delhi 110053",
-  businessConfig.offersDelivery
-    ? "Nearby delivery available"
-    : "Pickup at shop",
+  "Visit Store · Call Now",
   `GSTIN ${businessConfig.gstin}`,
   businessConfig.tagline,
 ];
