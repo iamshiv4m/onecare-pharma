@@ -22,6 +22,13 @@ export function mapsHref(): string {
   return businessConfig.googleMapsUrl;
 }
 
+/** Public Maps embed (no API key) using NAP address + geo pin. */
+export function mapsEmbedSrc(): string {
+  const { geo, shortName, addressDisplay } = businessConfig;
+  const query = encodeURIComponent(`${shortName}, ${addressDisplay}`);
+  return `https://maps.google.com/maps?q=${query}&ll=${geo.latitude},${geo.longitude}&z=16&hl=en&output=embed`;
+}
+
 export function reviewHref(): string | null {
   const url = businessConfig.googleReviewUrl.trim();
   return url ? url : null;

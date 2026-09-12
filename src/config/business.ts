@@ -27,6 +27,19 @@ export type SocialLink = {
   url: string;
 };
 
+/** Google Knowledge Graph mid for the GBP listing. Do not invent a Place ID. */
+const GOOGLE_KNOWLEDGE_GRAPH_ID = "/g/11zd9jg5t2";
+
+/** Stable Maps search (address query). Avoid share.google short links. */
+const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=One%20Care%20Pharma%2C%20Shop%20No.%202%2C%20C-35%2C%20Main%20Wazirabad%20Road%2C%20Bhajanpura%2C%20Delhi%20110053";
+
+/** Opens the Google listing for reviews via kgmid when Place ID is unknown. */
+const GOOGLE_REVIEW_URL =
+  "https://www.google.com/search?q=One+Care+Pharma+Bhajanpura&kgmid=/g/11zd9jg5t2";
+
+const GOOGLE_KNOWLEDGE_GRAPH_URL = `https://www.google.com/search?kgmid=${GOOGLE_KNOWLEDGE_GRAPH_ID}`;
+
 export const businessConfig = {
   name: "ONE CARE PHARMA",
   shortName: "One Care Pharma",
@@ -91,10 +104,19 @@ export const businessConfig = {
   serviceArea:
     "Walk-in customers from Bhajanpura, Main Wazirabad Road, and nearby neighbourhoods in North East Delhi (110053), including Yamuna Vihar, Khajuri Khas, Sonia Vihar, and Seelampur.",
 
-  googleMapsUrl: "https://share.google/qObhh3jxQhWoCL4q5",
+  googleKnowledgeGraphId: GOOGLE_KNOWLEDGE_GRAPH_ID,
+  googleKnowledgeGraphUrl: GOOGLE_KNOWLEDGE_GRAPH_URL,
+
+  googleMapsUrl: GOOGLE_MAPS_URL,
 
   /** Google Business Profile / Search listing — “Write a review” CTA. */
-  googleReviewUrl: "https://share.google/8BdFdwI1PhQZsx9NW",
+  googleReviewUrl: GOOGLE_REVIEW_URL,
+
+  /**
+   * Real storefront photos for a future gallery + extra schema images.
+   * public/ currently only has logo.jpg — do not add stock or AI photos.
+   */
+  storePhotos: [] as readonly string[],
 
   /** Meta tag content for Google Search Console (HTML tag method). */
   googleSiteVerification: "Kz-HjGOwQs8E82I0OkHdISzH5onBdzcEwhgpuLxYXho",
@@ -110,8 +132,8 @@ export const businessConfig = {
 
   /** Official profiles only. Maps listing helps Google match GBP ↔ website. */
   socialLinks: [
-    { name: "Google Maps", url: "https://share.google/qObhh3jxQhWoCL4q5" },
-    { name: "Google", url: "https://share.google/8BdFdwI1PhQZsx9NW" },
+    { name: "Google Maps", url: GOOGLE_MAPS_URL },
+    { name: "Google", url: GOOGLE_REVIEW_URL },
   ] as SocialLink[],
 
   prescriptionDisclaimer:

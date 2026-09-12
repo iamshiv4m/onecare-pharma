@@ -6,7 +6,7 @@ import {
 } from "@/components/CtaButtons";
 import { NapDetails } from "@/components/NapDetails";
 import { SectionTitle } from "@/components/SectionTitle";
-import { IconPin } from "@/components/Icons";
+import { mapsEmbedSrc } from "@/lib/links";
 import Link from "next/link";
 
 export function Location() {
@@ -34,20 +34,20 @@ export function Location() {
             </div>
           </div>
 
-          <div className="flex min-h-56 flex-col justify-between rounded-2xl bg-brand-dark p-6 text-white shadow-lg">
-            <div>
-              <IconPin className="size-10 text-[#b8f0cc]" />
-              <p className="mt-4 font-display text-2xl font-bold">
-                Google Maps
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-white/80">
-                Phone se directions lo — walking, bike ya car, jaisa aapko theek
-                lage.
-              </p>
+          <div className="flex min-h-72 flex-col overflow-hidden rounded-2xl border border-brand/10 bg-mint/40 shadow-sm">
+            <iframe
+              title={`Map of ${businessConfig.shortName}, ${businessConfig.addressDisplay}`}
+              src={mapsEmbedSrc()}
+              className="min-h-72 w-full flex-1 border-0 lg:min-h-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <div className="border-t border-brand/10 bg-white p-3">
+              <DirectionsButton className="w-full" variant="light">
+                Directions kholo
+              </DirectionsButton>
             </div>
-            <DirectionsButton variant="light" className="mt-6 w-full">
-              Directions kholo
-            </DirectionsButton>
           </div>
         </div>
         <p className="mt-6 text-sm text-ink-muted">
