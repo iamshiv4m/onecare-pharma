@@ -12,6 +12,7 @@ import {
   VisitStoreButton,
 } from "@/components/CtaButtons";
 import { businessConfig } from "@/config/business";
+import { getFaqPageJsonLd } from "@/lib/jsonld";
 import { getLocalLandingPage, type LocalLandingPage } from "@/lib/local-pages";
 
 export function localPageMetadata(path: LocalLandingPage["path"]): Metadata {
@@ -37,6 +38,8 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
     path === "/bhajanpura-pharmacy"
       ? { href: "/medical-store-110053" as const, label: "Medical store near 110053" }
       : { href: "/bhajanpura-pharmacy" as const, label: "Bhajanpura pharmacy" };
+
+  const faqLd = getFaqPageJsonLd(page.faqs);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -64,6 +67,10 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
         <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6 sm:pt-14">
           <p className="text-xs font-bold uppercase tracking-widest text-brand">
@@ -119,7 +126,7 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
 
         <Location />
         <Reviews />
-        <FAQ items={page.faqs} />
+        <FAQ items={page.faqs} includeJsonLd={false} />
       </main>
       <Footer />
       <MobileActionBar />

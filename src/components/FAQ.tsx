@@ -1,23 +1,25 @@
 import { getFaqs, type FaqItem } from "@/lib/faq";
+import { getFaqPageJsonLd } from "@/lib/jsonld";
 
-export function FAQ({ items }: { items?: FaqItem[] }) {
+export function FAQ({
+  items,
+  includeJsonLd = true,
+}: {
+  items?: FaqItem[];
+  includeJsonLd?: boolean;
+}) {
   const faqs = items ?? getFaqs();
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
 
   return (
     <section id="faq" className="scroll-mt-24 bg-mint/50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-      />
+      {includeJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getFaqPageJsonLd(faqs)),
+          }}
+        />
+      ) : null}
       <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
         <h2 className="font-display text-2xl font-bold text-brand-dark sm:text-3xl">
           Questions
