@@ -14,7 +14,10 @@ import { MobileActionBar } from "@/components/MobileActionBar";
 import { businessConfig } from "@/config/business";
 
 export const metadata: Metadata = {
-  alternates: { canonical: businessConfig.url },
+  alternates: {
+    canonical: businessConfig.url,
+    types: { "text/plain": `${businessConfig.url}/llms.txt` },
+  },
 };
 
 export default function Home() {

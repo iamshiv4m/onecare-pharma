@@ -6,7 +6,7 @@ export function NapDetails({ className = "" }: { className?: string }) {
   const { address, openingHours } = businessConfig;
 
   return (
-    <address className={`not-italic ${className}`}>
+    <address id="geo-entity" className={`not-italic ${className}`}>
       <strong className="block font-display text-lg text-brand-dark">
         {businessConfig.name}
       </strong>

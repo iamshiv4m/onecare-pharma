@@ -15,9 +15,24 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     legalName: businessConfig.legalName,
     description:
       "Neighbourhood pharmacy and medical store in Bhajanpura, Delhi. Visit the physical shop, call, or get directions for healthcare products and daily health needs.",
+    slogan: businessConfig.tagline,
+    inLanguage: ["en-IN", "hi"],
+    currenciesAccepted: "INR",
+    isAccessibleForFree: true,
+    knowsAbout: [
+      "Pharmacy",
+      "Medical store",
+      "Healthcare products",
+      "OTC medicines",
+      "First aid",
+      "Bhajanpura",
+      "Wazirabad Road",
+      "Delhi 110053",
+    ],
     url,
     logo: {
       "@type": "ImageObject",
+      "@id": `${url}/#logo`,
       url: `${url}/logo.jpg`,
       contentUrl: `${url}/logo.jpg`,
       width: 1024,
@@ -88,13 +103,47 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     pharmacy.sameAs = sameAs;
   }
 
+  pharmacy.potentialAction = [
+    {
+      "@type": "ViewAction",
+      name: "Get directions",
+      target: googleMapsUrl || url,
+    },
+    {
+      "@type": "CommunicateAction",
+      name: "Call store",
+      target: `tel:${businessConfig.phone}`,
+    },
+  ];
+
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${url}/#website`,
     name: shortName,
     url,
+    inLanguage: ["en-IN", "hi"],
     publisher: { "@id": `${url}/#pharmacy` },
+    about: { "@id": `${url}/#pharmacy` },
+  };
+
+  const webpage = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}/#webpage`,
+    url,
+    name: `${shortName} | Medical Store in Bhajanpura, Delhi 110053`,
+    description:
+      "Walk-in medical store on Main Wazirabad Road, Bhajanpura. Address, hours, phone, and Google Maps directions.",
+    inLanguage: "en-IN",
+    isPartOf: { "@id": `${url}/#website` },
+    about: { "@id": `${url}/#pharmacy` },
+    primaryImageOfPage: { "@id": `${url}/#logo` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#geo-entity", "h1"],
+    },
+    citation: `${url}/llms.txt`,
   };
 
   const breadcrumbs = {
@@ -124,7 +173,7 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     })),
   };
 
-  const graphs: object[] = [pharmacy, website, breadcrumbs];
+  const graphs: object[] = [pharmacy, website, webpage, breadcrumbs];
   if (includeFaq) {
     graphs.push(faqPage);
   }

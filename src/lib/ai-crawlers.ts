@@ -1,0 +1,23 @@
+/** User-agents that retrieve pages for AI answers / training / search. Allow all. */
+export const aiSearchUserAgents = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "ClaudeBot",
+  "anthropic-ai",
+  "Claude-Web",
+  "PerplexityBot",
+  "Google-Extended",
+  "GoogleOther",
+  "Google-CloudVertexBot",
+  "Applebot-Extended",
+  "Bytespider",
+  "CCBot",
+  "cohere-ai",
+  "Amazonbot",
+  "YouBot",
+  "meta-externalagent",
+  "FacebookBot",
+  "DuckAssistBot",
+  "ia_archiver",
+] as const;

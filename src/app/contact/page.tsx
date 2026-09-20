@@ -11,7 +11,10 @@ export const metadata: Metadata = {
   },
   description: `Visit ${businessConfig.name} at ${businessConfig.addressDisplay}. Call ${businessConfig.phoneDisplay} or get directions. Open all days, 8:30 AM – 11:00 PM.`,
   robots: { index: true, follow: true },
-  alternates: { canonical: `${businessConfig.url}/contact` },
+  alternates: {
+    canonical: `${businessConfig.url}/contact`,
+    types: { "text/plain": `${businessConfig.url}/llms.txt` },
+  },
 };
 
 export default function ContactPage() {

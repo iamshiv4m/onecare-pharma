@@ -13,6 +13,7 @@ const footerLinks = [
   { href: "/medical-store-110053", label: "Medical store near 110053" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
+  { href: "/llms.txt", label: "llms.txt (AI)" },
 ];
 
 export function Footer() {

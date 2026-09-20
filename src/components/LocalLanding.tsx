@@ -22,7 +22,10 @@ export function localPageMetadata(path: LocalLandingPage["path"]): Metadata {
     },
     description: page.description,
     robots: { index: true, follow: true },
-    alternates: { canonical: `${businessConfig.url}${page.path}` },
+    alternates: {
+      canonical: `${businessConfig.url}${page.path}`,
+      types: { "text/plain": `${businessConfig.url}/llms.txt` },
+    },
     openGraph: {
       title: page.title,
       description: page.description,
@@ -35,7 +38,10 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
   const page = getLocalLandingPage(path);
   const related =
     path === "/bhajanpura-pharmacy"
-      ? { href: "/medical-store-110053" as const, label: "Medical store near 110053" }
+      ? {
+          href: "/medical-store-110053" as const,
+          label: "Medical store near 110053",
+        }
       : { href: "/bhajanpura-pharmacy" as const, label: "Bhajanpura pharmacy" };
 
   const breadcrumbLd = {

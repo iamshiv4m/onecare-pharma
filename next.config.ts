@@ -12,11 +12,24 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    const verificationFile = businessConfig.googleSiteVerificationFile;
-    if (!verificationFile) return [];
-
-    return [
+    const headers: {
+      source: string;
+      headers: { key: string; value: string }[];
+    }[] = [
       {
+        source: "/llms.txt",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow, max-snippet:-1",
+          },
+        ],
+      },
+    ];
+
+    const verificationFile = businessConfig.googleSiteVerificationFile;
+    if (verificationFile) {
+      headers.push({
         source: `/${verificationFile}`,
         headers: [
           {
@@ -24,8 +37,10 @@ const nextConfig: NextConfig = {
             value: "text/html; charset=utf-8",
           },
         ],
-      },
-    ];
+      });
+    }
+
+    return headers;
   },
 };
 

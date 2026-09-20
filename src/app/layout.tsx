@@ -31,7 +31,11 @@ export const metadata: Metadata = {
     "Pharmacy near Bhajanpura",
     "pharmacy Wazirabad Road",
   ],
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   category: "health",
   verification: businessConfig.googleSiteVerification
     ? { google: businessConfig.googleSiteVerification }
@@ -46,6 +50,13 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "IN-DL",
     "geo.placename": "Bhajanpura, Delhi",
+    "geo.position": `${businessConfig.geo.latitude};${businessConfig.geo.longitude}`,
+    ICBM: `${businessConfig.geo.latitude}, ${businessConfig.geo.longitude}`,
+  },
+  alternates: {
+    types: {
+      "text/plain": `${businessConfig.url}/llms.txt`,
+    },
   },
   openGraph: {
     type: "website",
