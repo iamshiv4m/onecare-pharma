@@ -27,7 +27,7 @@ ${shortName} is a **walk-in neighbourhood medical store** (pharmacy / medical sh
 
 - Legal / trading name: ${name}
 - Also known as: ${shortName}
-- Type: Pharmacy, LocalBusiness, MedicalBusiness (physical shop)
+- Type: Pharmacy, LocalBusiness (physical shop)
 - Address: ${addressDisplay}, India
 - PIN / locality: 110053, Bhajanpura, Delhi
 - Landmark: Main Wazirabad Road, Shop No. 2, C-35, Ground Floor

@@ -1,17 +1,44 @@
 import { businessConfig, isPlaceholderPhone } from "@/config/business";
-import { getFaqs } from "@/lib/faq";
+import { getFaqs, type FaqItem } from "@/lib/faq";
+
+export function getFaqPageJsonLd(faqs: FaqItem[] = getFaqs()): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
 
 export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
-  const includeFaq = options.includeFaq ?? true;
-  const { address, url, name, shortName, googleMapsUrl, socialLinks, geo } =
-    businessConfig;
+  // Default false: layout injects this on every page. Homepage/local FAQs emit
+  // their own FAQPage graph so questions match the visible accordion.
+  const includeFaq = options.includeFaq ?? false;
+  const {
+    address,
+    url,
+    name,
+    shortName,
+    googleMapsUrl,
+    googleKnowledgeGraphUrl,
+    socialLinks,
+    geo,
+  } = businessConfig;
+
+  const imageUrl = `${url}/logo.jpg`;
 
   const pharmacy: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": ["Pharmacy", "LocalBusiness", "MedicalBusiness"],
+    "@type": ["Pharmacy", "LocalBusiness"],
     "@id": `${url}/#pharmacy`,
-    name,
-    alternateName: shortName,
+    name: shortName,
+    alternateName: name,
     legalName: businessConfig.legalName,
     description:
       "Neighbourhood pharmacy and medical store in Bhajanpura, Delhi. Visit the physical shop, call, or get directions for healthcare products and daily health needs.",
@@ -30,11 +57,12 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
       "Delhi 110053",
     ],
     url,
+    image: imageUrl,
     logo: {
       "@type": "ImageObject",
       "@id": `${url}/#logo`,
-      url: `${url}/logo.jpg`,
-      contentUrl: `${url}/logo.jpg`,
+      url: imageUrl,
+      contentUrl: imageUrl,
       width: 1024,
       height: 826,
     },
@@ -95,9 +123,11 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     pharmacy.openingHours = "Mo-Su 08:30-23:00";
   }
 
-  const sameAs = [...socialLinks.map((link) => link.url), googleMapsUrl].filter(
-    (value, index, arr) => value && arr.indexOf(value) === index,
-  );
+  const sameAs = [
+    ...socialLinks.map((link) => link.url),
+    googleMapsUrl,
+    googleKnowledgeGraphUrl,
+  ].filter((value, index, arr) => value && arr.indexOf(value) === index);
 
   if (sameAs.length > 0) {
     pharmacy.sameAs = sameAs;
@@ -159,23 +189,9 @@ export function getJsonLd(options: { includeFaq?: boolean } = {}): object[] {
     ],
   };
 
-  const faqs = getFaqs();
-  const faqPage = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   const graphs: object[] = [pharmacy, website, webpage, breadcrumbs];
   if (includeFaq) {
-    graphs.push(faqPage);
+    graphs.push(getFaqPageJsonLd());
   }
   return graphs;
 }
