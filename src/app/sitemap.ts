@@ -3,7 +3,7 @@ import { localLandingPages } from "@/lib/local-pages";
 import type { MetadataRoute } from "next";
 
 /** Bump this when page content actually changes — do not use `new Date()`. */
-const LAST_MODIFIED = "2026-09-20";
+const LAST_MODIFIED = "2026-09-26";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [

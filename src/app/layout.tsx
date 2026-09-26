@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { businessConfig } from "@/config/business";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/analytics/Analytics";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -102,6 +103,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col overflow-x-clip bg-background text-ink">
         <JsonLd />
         {children}
+        <Analytics />
       </body>
     </html>
   );

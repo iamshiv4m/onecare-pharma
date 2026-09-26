@@ -56,10 +56,18 @@ export function Hero() {
                 href="#contact"
                 className="w-full sm:w-auto sm:min-w-[180px]"
               />
-              <DirectionsButton variant="onDark" className="w-full sm:w-auto">
+              <DirectionsButton
+                variant="onDark"
+                trackingLocation="hero"
+                className="w-full sm:w-auto"
+              >
                 Get Directions
               </DirectionsButton>
-              <CallButton variant="onDark" className="w-full sm:w-auto" />
+              <CallButton
+                variant="onDark"
+                trackingLocation="hero"
+                className="w-full sm:w-auto"
+              />
             </div>
           </div>
 

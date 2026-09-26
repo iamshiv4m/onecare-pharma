@@ -2,6 +2,8 @@ import Link from "next/link";
 import { businessConfig } from "@/config/business";
 import { BrandLogo } from "@/components/BrandLogo";
 import { IconPin, IconWhatsApp } from "@/components/Icons";
+import { ConsentSettingsButton } from "@/components/analytics/ConsentSettingsButton";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { telHref, mapsHref, whatsappHref } from "@/lib/links";
 
 const footerLinks = [
@@ -48,13 +50,15 @@ export function Footer() {
               </p>
               <div className="flex flex-col gap-2">
                 {businessConfig.phones.map((phone) => (
-                  <a
+                  <TrackedLink
                     key={phone.e164}
                     href={telHref(phone.e164)}
+                    event="click_call"
+                    location="footer-phone"
                     className="inline-flex w-fit font-semibold text-white transition hover:text-[#b8f0cc]"
                   >
                     {phone.display}
-                  </a>
+                  </TrackedLink>
                 ))}
               </div>
               <a
@@ -90,24 +94,28 @@ export function Footer() {
             </nav>
 
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              <a
+              <TrackedLink
                 href={whatsappHref()}
+                event="click_whatsapp"
+                location="footer"
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-whatsapp px-4 text-sm font-semibold text-white transition hover:bg-[#198a36]"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <IconWhatsApp className="size-4" />
                 WhatsApp
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href={mapsHref()}
+                event="click_directions"
+                location="footer"
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-sm font-semibold text-white transition hover:bg-white/20"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <IconPin className="size-4" />
                 Directions
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>
@@ -120,6 +128,7 @@ export function Footer() {
             © {new Date().getFullYear()} {businessConfig.shortName}. Bhajanpura,
             Delhi 110053.
           </p>
+          <ConsentSettingsButton className="mt-3 text-xs font-semibold text-[#b8f0cc] underline-offset-2 hover:underline" />
         </div>
       </div>
     </footer>

@@ -90,8 +90,8 @@ export function LocalLanding({ path }: { path: LocalLandingPage["path"] }) {
           </p>
           <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
             <VisitStoreButton href="#contact" />
-            <CallButton />
-            <DirectionsButton variant="light" />
+            <CallButton trackingLocation="local-landing" />
+            <DirectionsButton variant="light" trackingLocation="local-landing" />
           </div>
         </div>
 

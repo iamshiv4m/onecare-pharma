@@ -7,6 +7,7 @@ import {
 import { BrandLogo } from "@/components/BrandLogo";
 import { SectionTitle } from "@/components/SectionTitle";
 import { IconClock, IconPill, IconPin } from "@/components/Icons";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { telHref } from "@/lib/links";
 
 const points = [
@@ -65,13 +66,15 @@ export function TrustSection() {
 
             <div className="mt-4 flex flex-wrap gap-2">
               {businessConfig.phones.map((phone) => (
-                <a
+                <TrackedLink
                   key={phone.e164}
                   href={telHref(phone.e164)}
+                  event="click_call"
+                  location="trust-phone"
                   className="rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/20"
                 >
                   {phone.display}
-                </a>
+                </TrackedLink>
               ))}
             </div>
 
@@ -123,8 +126,12 @@ export function TrustSection() {
 
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <VisitStoreButton href="#contact" className="w-full sm:w-auto" />
-              <CallButton className="w-full sm:w-auto" />
-              <DirectionsButton variant="light" className="w-full sm:w-auto" />
+              <CallButton trackingLocation="trust" className="w-full sm:w-auto" />
+              <DirectionsButton
+                variant="light"
+                trackingLocation="trust"
+                className="w-full sm:w-auto"
+              />
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { businessConfig } from "@/config/business";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { telHref } from "@/lib/links";
 
 /** Visible NAP block — Google matches this to Google Business Profile. */
@@ -19,13 +20,15 @@ export function NapDetails({ className = "" }: { className?: string }) {
       </p>
       <p className="mt-3 flex flex-col gap-2 text-sm text-ink sm:flex-row sm:flex-wrap sm:gap-0">
         {businessConfig.phones.map((p) => (
-          <a
+          <TrackedLink
             key={p.e164}
             href={telHref(p.e164)}
+            event="click_call"
+            location="nap"
             className="inline-flex min-h-11 items-center font-medium text-brand hover:underline sm:mr-3 sm:min-h-0"
           >
             {p.display}
-          </a>
+          </TrackedLink>
         ))}
       </p>
       <p className="mt-1 text-sm">

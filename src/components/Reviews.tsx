@@ -1,5 +1,6 @@
 import { mapsHref, reviewHref } from "@/lib/links";
 import { businessConfig } from "@/config/business";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 
 export function Reviews() {
   const href = reviewHref() ?? mapsHref();
@@ -24,14 +25,16 @@ export function Reviews() {
             khush ho to Google Maps pe likh dena. Bhajanpura ke liye helpful
             hota hai.
           </p>
-          <a
+          <TrackedLink
             href={href}
+            event={reviewHref() ? "click_review" : "click_directions"}
+            location="reviews"
             className="mt-5 inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
             target="_blank"
             rel="noopener noreferrer"
           >
             Review likho on Google
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </section>

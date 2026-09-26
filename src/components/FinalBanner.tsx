@@ -23,8 +23,16 @@ export function FinalBanner() {
             href="/#contact"
             className="w-full sm:w-auto"
           />
-          <CallButton variant="onDark" className="w-full sm:w-auto" />
-          <DirectionsButton variant="onDark" className="w-full sm:w-auto" />
+          <CallButton
+            variant="onDark"
+            trackingLocation="final-banner"
+            className="w-full sm:w-auto"
+          />
+          <DirectionsButton
+            variant="onDark"
+            trackingLocation="final-banner"
+            className="w-full sm:w-auto"
+          />
         </div>
       </div>
     </section>

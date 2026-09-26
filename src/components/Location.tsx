@@ -28,9 +28,16 @@ export function Location() {
               GSTIN {businessConfig.gstin}
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              <CallButton className="w-full sm:w-auto" />
-              <DirectionsButton className="w-full sm:w-auto" />
-              <WhatsAppButton className="w-full sm:w-auto" variant="light" />
+              <CallButton trackingLocation="location" className="w-full sm:w-auto" />
+              <DirectionsButton
+                trackingLocation="location"
+                className="w-full sm:w-auto"
+              />
+              <WhatsAppButton
+                trackingLocation="location"
+                className="w-full sm:w-auto"
+                variant="light"
+              />
             </div>
           </div>
 
@@ -44,7 +51,11 @@ export function Location() {
               allowFullScreen
             />
             <div className="border-t border-brand/10 bg-white p-3">
-              <DirectionsButton className="w-full" variant="light">
+              <DirectionsButton
+                trackingLocation="location-map"
+                className="w-full"
+                variant="light"
+              >
                 Directions kholo
               </DirectionsButton>
             </div>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { businessConfig } from "@/config/business";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { mapsHref, telHref, whatsappHref } from "@/lib/links";
 import { IconPhone, IconPin, IconWhatsApp } from "@/components/Icons";
 
@@ -12,12 +13,14 @@ export function WhatsAppButton({
   className = "",
   variant = "primary",
   glow = false,
+  trackingLocation = "whatsapp",
 }: {
   children?: ReactNode;
   message?: string;
   className?: string;
   variant?: "primary" | "light" | "onDark";
   glow?: boolean;
+  trackingLocation?: string;
 }) {
   const styles =
     variant === "primary"
@@ -26,15 +29,17 @@ export function WhatsAppButton({
         ? "border border-brand/20 bg-white text-brand-dark hover:bg-mint"
         : "border border-white/30 bg-white/10 text-white hover:bg-white/20";
   return (
-    <a
+    <TrackedLink
       href={whatsappHref(message)}
+      event="click_whatsapp"
+      location={trackingLocation}
       className={`${base} ${styles} ${glow ? "whatsapp-glow" : ""} ${className}`}
       target="_blank"
       rel="noopener noreferrer"
     >
       <IconWhatsApp className="size-5" />
       <span className="leading-none">{children}</span>
-    </a>
+    </TrackedLink>
   );
 }
 
@@ -42,10 +47,12 @@ export function CallButton({
   children = "Call Now",
   className = "",
   variant = "secondary",
+  trackingLocation = "call",
 }: {
   children?: ReactNode;
   className?: string;
   variant?: "secondary" | "ghost" | "onDark";
+  trackingLocation?: string;
 }) {
   const styles =
     variant === "secondary"
@@ -54,13 +61,18 @@ export function CallButton({
         ? "border-2 border-white bg-[#b8f0cc] text-brand-dark hover:bg-white shadow-sm"
         : "text-brand-dark underline-offset-4 hover:underline px-2";
   return (
-    <a href={telHref()} className={`${base} ${styles} ${className}`}>
+    <TrackedLink
+      href={telHref()}
+      event="click_call"
+      location={trackingLocation}
+      className={`${base} ${styles} ${className}`}
+    >
       <IconPhone className="size-5" />
       <span className="leading-none">
         {children}
         <span className="sr-only"> {businessConfig.phoneDisplay}</span>
       </span>
-    </a>
+    </TrackedLink>
   );
 }
 
@@ -94,10 +106,12 @@ export function DirectionsButton({
   children = "Get Directions",
   className = "",
   variant = "primary",
+  trackingLocation = "directions",
 }: {
   children?: ReactNode;
   className?: string;
   variant?: "primary" | "light" | "onDark";
+  trackingLocation?: string;
 }) {
   const styles =
     variant === "primary"
@@ -107,14 +121,16 @@ export function DirectionsButton({
         : "border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-dark";
 
   return (
-    <a
+    <TrackedLink
       href={mapsHref()}
+      event="click_directions"
+      location={trackingLocation}
       className={`${base} ${styles} ${className}`}
       target="_blank"
       rel="noopener noreferrer"
     >
       <IconPin className="size-5" />
       <span className="leading-none">{children}</span>
-    </a>
+    </TrackedLink>
   );
 }

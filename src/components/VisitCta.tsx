@@ -32,8 +32,16 @@ export function VisitCta() {
               href="#contact"
               className="w-full sm:w-auto"
             />
-            <CallButton variant="onDark" className="w-full sm:w-auto" />
-            <DirectionsButton variant="onDark" className="w-full sm:w-auto" />
+            <CallButton
+              variant="onDark"
+              trackingLocation="visit-cta"
+              className="w-full sm:w-auto"
+            />
+            <DirectionsButton
+              variant="onDark"
+              trackingLocation="visit-cta"
+              className="w-full sm:w-auto"
+            />
           </div>
         </div>
 
